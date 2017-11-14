@@ -83,7 +83,13 @@ CORE_SRC = \
 	$(BACNET_CORE)/authentication_factor_format.c \
 	$(BACNET_CORE)/authentication_factor.c \
 	$(BACNET_CORE)/credential_authentication_factor.c \
-	$(BACNET_CORE)/version.c
+	$(BACNET_CORE)/version.c \
+	$(BACNET_CORE)/ucix.c
+
+OBJECT_SRC = \
+	$(BACNET_OBJECT)/device.c \
+	$(BACNET_OBJECT)/nc.c \
+	$(BACNET_OBJECT)/bacfile.c
 
 HANDLER_SRC = \
 	$(BACNET_HANDLER)/dlenv.c \
@@ -201,7 +207,7 @@ ifneq (,$(findstring -DBAC_UCI,$(BACNET_DEFINES)))
 UCI_SRC = $(BACNET_CORE)/ucix.c
 endif
 
-SRCS = ${CORE_SRC} ${PORT_SRC} ${HANDLER_SRC} ${UCI_SRC}
+SRCS = ${CORE_SRC} ${PORT_SRC} ${HANDLER_SRC} ${UCI_SRC} ${OBJECT_SRC}
 
 OBJS = ${SRCS:.c=.o}
 
